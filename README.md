@@ -34,8 +34,8 @@ Import the FCN8s model and compile
 
 ```python
 from keras_fcn import FCN
-fcn_vgg16 = FCN(basenet='vgg16', trainable_base=False, weights='imagenet'
-                input_shape=(500, 500, 3), num_output=21)
+fcn_vgg16 = FCN(input_shape=(500, 500, 3), classes=21,  
+                weights='imagenet', trainable_encoder=True)
 fcn_vgg16.compile(optimizer='rmsprop',
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
