@@ -43,14 +43,18 @@ class Encoder(Model):
     def __init__(self, inputs, blocks, weights='imagenet',
                  trainable=True, name='encoder'):
         inverse_pyramid = []
-        x = inputs
 
         # convolutional block
         conv_blocks = blocks[:-1]
         for i, block in enumerate(conv_blocks):
-            x = block(x)
-            if i < len(conv_blocks) - 1:
+            if i == 0:
+                x = block(inputs)
                 inverse_pyramid.append(x)
+            elif i < len(conv_blocks) - 1:
+                x = block(x)
+                inverse_pyramid.append(x)
+            else:
+                x = block(x)
 
         # fully convolutional block
         fc_block = blocks[-1]
