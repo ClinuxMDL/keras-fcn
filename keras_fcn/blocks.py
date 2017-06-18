@@ -76,7 +76,7 @@ def vgg_deconv(classes, scale=1, kernel_size=(4, 4), strides=(2, 2),
 
     """
     def f(x, y):
-        x = Lambda(lambda x: x * scale,
+        x = Lambda(lambda xx: xx * scale,
                    name='scale_{}'.format(block_name))(x)
         x = Conv2D(filters=classes, kernel_size=(1, 1),
                    name='score_{}'.format(block_name))(x)
@@ -92,7 +92,7 @@ def vgg_deconv(classes, scale=1, kernel_size=(4, 4), strides=(2, 2),
             y = Conv2DTranspose(filters=classes, kernel_size=kernel_size,
                                 strides=strides, padding='valid',
                                 use_bias=False,
-                                name='upscore_{}'.format(block_name))(x)
+                                name='upscore_{}'.format(block_name))(y)
         return y
     return f
 
