@@ -4,23 +4,23 @@
 
 A re-implementation of Fully Convolutional Networks with Keras
 
-### Installation
+## Installation
 
-#### Dependencies
+### Dependencies
 
 
 1. [keras](https://keras.io/#installation)
 2. [tensorflow](https://www.tensorflow.org/install/)/[theano](http://deeplearning.net/software/theano/install.html)/[CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/Setup-CNTK-on-your-machine)
 
 
-#### Install with `pip`
+### Install with `pip`
 
 ```bash
 $ pip install git+https://github.com/JihongJu/keras-fcn.git
 ```
 
 
-#### Build from source
+### Build from source
 
 ```bash
 $ git clone https://github.com/JihongJu/keras-fcn.git
@@ -28,9 +28,9 @@ $ cd keras-fcn
 $ pip install --editable .
 ```
 
-### Usage
+## Usage
 
-Import the FCN8s model and compile
+### FCN with VGG16
 
 ```python
 from keras_fcn import FCN
@@ -42,9 +42,14 @@ fcn_vgg16.compile(optimizer='rmsprop',
 fcn_vgg16.fit(X_train, y_train, batch_size=1)
 ```
 
+
+### Custom FCN
+```python
+```
+
 More details see [Training Pascal VOC2011 Segmention](https://github.com/JihongJu/keras-fcn/blob/master/voc2011/train.py)
 
-#### Try Examples
+## Try Examples
 
 1. Download [VOC2011](http://host.robots.ox.ac.uk/pascal/VOC/voc2011/) dataset
 
