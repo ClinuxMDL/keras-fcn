@@ -53,6 +53,8 @@ def FCN_VGG16(input_shape, classes,
 
     # Append image to the end of feature pyramid
     feat_pyramid.append(inputs)
+
+    # Decode feature pyramid
     outputs = VGGDecoder(feat_pyramid, scales=[1, 1e-2, 1e-4], classes=21)
 
     # return model
