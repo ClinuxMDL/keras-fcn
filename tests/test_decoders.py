@@ -30,6 +30,5 @@ def test_vgg_decoder():
         score_shape = (None, 21, 500, 500)
     pyramid = [drop7, pool4, pool3, inputs]
     scales = [1., 1e-2, 1e-4]
-    decoder = VGGDecoder(pyramid, scales, classes=21)
-    score = decoder.outputs[0]
+    score = VGGDecoder(pyramid, scales, classes=21)
     assert K.int_shape(score) == score_shape
